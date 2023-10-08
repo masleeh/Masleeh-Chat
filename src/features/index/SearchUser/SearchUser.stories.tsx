@@ -1,8 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import SearchUser from './SearchUser'
+import Decorator from 'shared/config/storybook/decorator';
 
 const meta = {
-    title: 'features/index/SearchUser',
+    title: 'features/index/SearchUser/MainElement',
     component: SearchUser,
     parameters: {
         layout: 'centered',
@@ -21,6 +22,10 @@ export const Primary: Story = {
         
     },
     decorators: [
-        
+        (StoryComponent) => (
+            <Decorator>
+                <StoryComponent />
+            </Decorator>
+        )
     ]
 };

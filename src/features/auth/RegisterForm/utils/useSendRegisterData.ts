@@ -3,14 +3,9 @@ import $api from "shared/lib/axiosApi/axiosApi";
 import { RegisterFormType } from "../RegisterForm.types";
 import { isAxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-
-type ServerRes = {
-    access_token: string;
-}
-
-function isRes(res: ServerRes | unknown): res is ServerRes {
-    return (<ServerRes>res).access_token !== undefined
-}
+import { getUserDataSchema } from "shared/lib/getUserData.ts/getUserData.types";
+import { useAppDispatch } from "shared/hooks/useAppDispatch";
+import { userActions } from "entities/User";
 
 const useSendRegisterData = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -18,6 +13,7 @@ const useSendRegisterData = () => {
     const [isSuccess, setIsSuccess] = useState(false)
 
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const clearError = () => setError('')
 
@@ -27,13 +23,15 @@ const useSendRegisterData = () => {
             const {data} = await $api.post('/auth/register', {
                 username: registerData.username,
                 password: registerData.password
-            }) 
-            if (isRes(data)) {
-                localStorage.setItem('masleeh_chat_token', data.access_token)
+            })
+            const checkData = getUserDataSchema.safeParse(data) 
+            if (checkData.success) {
+                localStorage.setItem('masleeh_chat_token', checkData.data.access_token)
+                dispatch(userActions.setUserData(checkData.data.userData))
                 setIsSuccess(true)
                 return navigate('/')
             } else {
-                return setError('Unknown error')
+                return setError(checkData.error.message)
             }
         } catch (error) {
             setIsLoading(false)

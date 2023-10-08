@@ -2,6 +2,7 @@ import { isAxiosError } from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react"
 import useDebounce from "shared/hooks/useDebounce";
 import $api from "shared/lib/axiosApi/axiosApi";
+import { SearchUserSchema } from "../SearchUser.types";
 
 export type SearchUsersServerRes = {
     username: string;
@@ -29,9 +30,14 @@ const useSearchUser = (search: string) => {
             const response = await $api.post('/user/search', {
                 username: search
             })
-            setData(response.data)
-            setIsLoading(false)
-            setIsSuccess(true)
+            const checkResponse = SearchUserSchema.safeParse(response.data)
+            if (checkResponse.success) {
+                setData(checkResponse.data.users)
+                setIsLoading(false)
+                return setIsSuccess(true)
+            } else {
+                return setError(checkResponse.error.message)
+            }
         } catch (error) {
             setIsLoading(false)
             console.log(error)

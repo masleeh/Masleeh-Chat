@@ -3,7 +3,10 @@ import type { IUserSchema, IUser } from './model/types/user.state'
 
 export {
     userActions,
-    userReducer
+    userReducer,
 } 
 
-export type { IUserSchema, IUser }
+export type { 
+    IUserSchema, 
+    IUser
+}

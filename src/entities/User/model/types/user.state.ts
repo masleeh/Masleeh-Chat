@@ -5,5 +5,5 @@ export interface IUserSchema {
 export interface IUser {
     user_id: string;
     username: string;
-    profile_pic: string;
+    profile_pic?: string;
 }

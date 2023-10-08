@@ -2,23 +2,29 @@ import { AuthPage } from "pages/AuthPage"
 import { IndexPage } from "pages/IndexPage"
 import { RouteProps } from "react-router-dom"
 
+export type AppRoutesProps = RouteProps & {
+    authOnly?: boolean
+}
+
 enum AppRoutes {
     index = 'index',
     auth = 'auth'
 }
 
-const AppRoutePaths: Record<AppRoutes, string> = {
+export const AppRoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.index]: '/',
     [AppRoutes.auth]: '/auth'
 }
 
-export const AppRoutesConfig: Record<AppRoutes, RouteProps> = {
+export const AppRoutesConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.index]: {
         path: AppRoutePaths.index,
-        element: <IndexPage />
+        element: <IndexPage />,
+        authOnly: true
     },
     [AppRoutes.auth]: {
         path: AppRoutePaths.auth,
-        element: <AuthPage />
+        element: <AuthPage />,
+        authOnly: false
     }
 }

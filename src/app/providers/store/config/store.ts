@@ -14,3 +14,6 @@ export const createReduxStore = (initialState?: IStateSchema) => {
         preloadedState: initialState
     })
 }
+
+export type RootState = ReturnType<typeof createReduxStore>['getState']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

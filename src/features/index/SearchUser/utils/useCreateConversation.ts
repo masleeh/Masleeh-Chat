@@ -27,7 +27,7 @@ const useCreateConversation = () => {
             type: 'private'
         }
         try {
-            const { data } = await $api.post<CreateConvResType>('', requestData)
+            const { data } = await $api.post<CreateConvResType>('/conversations', requestData)
             const validateRes = CreateConvResSchema.safeParse(data)
             setIsLoading(false)
             if (validateRes.success) {

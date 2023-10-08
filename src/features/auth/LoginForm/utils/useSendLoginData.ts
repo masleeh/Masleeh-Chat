@@ -3,14 +3,9 @@ import { LoginFormType } from "../LoginForm.types"
 import $api from "shared/lib/axiosApi/axiosApi"
 import { isAxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-
-type ServerRes = {
-    access_token: string;
-}
-
-function isRes(res: ServerRes | unknown): res is ServerRes {
-    return (<ServerRes>res).access_token !== undefined
-}
+import { getUserDataSchema, getUserDataType } from "shared/lib/getUserData.ts/getUserData.types";
+import { useAppDispatch } from "shared/hooks/useAppDispatch";
+import { userActions } from "entities/User";
 
 const useSendLoginData = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -18,21 +13,23 @@ const useSendLoginData = () => {
     const [isSuccess, setIsSuccess] = useState(false)
 
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const clearError = () => setError('')
 
     const sendLoginData = async (loginData: LoginFormType) => {
         setIsLoading(true)
         try {
-            const { data } = await $api.post<ServerRes>("/auth/login", loginData)
+            const { data } = await $api.post<getUserDataType>("/auth/login", loginData)
+            const checkData = getUserDataSchema.safeParse(data)
             setIsLoading(false)
-            console.log(data)
-            if (isRes(data)) {
-                localStorage.setItem('masleeh_chat_token', data.access_token)
+            if (checkData.success) {
+                localStorage.setItem('masleeh_chat_token', checkData.data.access_token)
+                dispatch(userActions.setUserData(checkData.data.userData))
                 setIsSuccess(true)
                 return navigate('/')
             } else {
-                return setError('Unknown error')
+                return setError(checkData.error.message)
             }
         } catch (error) {
             setIsLoading(false)

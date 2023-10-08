@@ -70,6 +70,7 @@ const LoginForm = memo(({
 
                 <ActionAlert 
                     type="close"
+                    severity='error'
                     open={Boolean(error)}
                     alertText={t(error)}
                     actionFunc={clearError}
