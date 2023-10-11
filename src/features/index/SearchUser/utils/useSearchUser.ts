@@ -7,7 +7,7 @@ import { SearchUserSchema } from "../SearchUser.types";
 export type SearchUsersServerRes = {
     username: string;
     user_id: string;
-    profile_pic: string;
+    profile_pic?: string;
 }
 
 const useSearchUser = (search: string) => {
@@ -32,15 +32,17 @@ const useSearchUser = (search: string) => {
             })
             const checkResponse = SearchUserSchema.safeParse(response.data)
             if (checkResponse.success) {
-                setData(checkResponse.data.users)
+                setData(checkResponse.data)
                 setIsLoading(false)
                 return setIsSuccess(true)
             } else {
+                setIsLoading(false)
+                setIsSuccess(false)
                 return setError(checkResponse.error.message)
             }
         } catch (error) {
             setIsLoading(false)
-            console.log(error)
+            setIsSuccess(false)
             if (isAxiosError(error)) {
                 return setError(error.response!.data.message ?? 'Unknown error')
             } else {
@@ -61,6 +63,7 @@ const useSearchUser = (search: string) => {
         isSuccess,
         data,
         prevDataLength,
+        searchUserByUserName
     }
 }
 

@@ -77,6 +77,7 @@ const RegisterForm = memo(({
                 />
 
                 <ActionAlert 
+                    aria-label="error-alert"
                     type="close"
                     severity="error"
                     open={Boolean(error)}

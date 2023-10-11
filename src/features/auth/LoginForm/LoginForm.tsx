@@ -31,6 +31,8 @@ const LoginForm = memo(({
         clearError
     } = useSendLoginData()
 
+    console.log(typeof  error)
+
     return (
         <AuthFormWrapper title={t("authorization")}>
             <Box
@@ -69,6 +71,7 @@ const LoginForm = memo(({
                 />
 
                 <ActionAlert 
+                    aria-label='error-alert'
                     type="close"
                     severity='error'
                     open={Boolean(error)}

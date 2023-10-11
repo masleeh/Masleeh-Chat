@@ -27,6 +27,7 @@ const AccountMenu = ({
     return (
         <React.Fragment>
             <IconButton
+                aria-label="icon-button with avatar"
                 onClick={handleClick}
                 aria-controls={open ? 'navbar-menu' : undefined}
                 aria-haspopup="true"
