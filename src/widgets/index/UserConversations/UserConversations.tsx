@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import { Conversations } from 'entities/Conversations';
+import { Conversations } from 'features/index/Conversations';
 import { SearchUser } from 'features/index/SearchUser';
 
 const UserConversations = () => {

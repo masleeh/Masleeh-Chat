@@ -2,7 +2,7 @@ import { List } from '@mui/material';
 import { memo } from 'react';
 import ConvItem from './elements/ConvItem';
 import useDynamicReducer from 'shared/hooks/useDynamicReducer';
-import { convReducer } from './model/slice/conversations.slice';
+import { convReducer } from 'entities/Conversations';
 
 const Conversations = memo(() => {
     useDynamicReducer('coversation', convReducer, false)

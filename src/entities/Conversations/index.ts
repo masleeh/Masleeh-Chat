@@ -1,5 +1,8 @@
-import Conversations from "./Conversations";
+import { convActions, convReducer } from "./model/slice/conversations.slice";
+import getConvsThunk from "./utils/getConvsThunk/getConvsThunk";
 
 export {
-    Conversations
+    convActions, 
+    convReducer,
+    getConvsThunk
 }

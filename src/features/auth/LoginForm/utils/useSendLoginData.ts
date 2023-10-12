@@ -24,7 +24,7 @@ const useSendLoginData = () => {
             const checkData = getUserDataSchema.safeParse(data)
             setIsLoading(false)
             if (checkData.success) {
-                localStorage.setItem('masleeh_chat_token', checkData.data.access_token)
+                localStorage.setItem(import.meta.env.VITE_LOCALSTORAGE_TOKEN_KEY, checkData.data.access_token)
                 dispatch(userActions.setUserData(checkData.data.userData))
                 setIsSuccess(true)
                 return navigate('/')

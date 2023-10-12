@@ -15,7 +15,6 @@ interface IShowPasswordProps extends OutlinedInputProps {
     label: string;
     errorMessage?: string;
     variant?: 'standard' | 'outlined' | 'filled';
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }
 
 const ShowPassword = memo(forwardRef(({
