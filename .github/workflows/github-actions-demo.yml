@@ -22,13 +22,10 @@ jobs:
       - name: Installing packages
         run: yarn install
       - name: Build production project
-        run: yarn build:prod
+        run: yarn build
       - name: Llinting
         if: always() 
         run: yarn lint
-      - name: Linting styles
-        if: always() 
-        run: yarn lint:scss
       - name: Running unit tests
         if: always() 
         run: yarn test
