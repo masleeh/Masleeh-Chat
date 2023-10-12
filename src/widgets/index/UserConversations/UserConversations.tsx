@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material';
+import { Conversations } from 'entities/Conversations';
 import { SearchUser } from 'features/index/SearchUser';
 
 const UserConversations = () => {
@@ -6,7 +7,7 @@ const UserConversations = () => {
     return (
         <Stack direction="column" spacing={2} sx={{ width: '100%', maxWidth: 400 }}>
             <SearchUser />
-            <div>Conversations</div> 
+            <Conversations /> 
         </Stack>
     )
 }

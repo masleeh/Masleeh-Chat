@@ -1,6 +1,7 @@
-import { ReducersMapObject, configureStore } from "@reduxjs/toolkit"
-import { IStateSchema } from "./StateSchema"
+import { Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit"
+import { IStateSchema, ReduxStoreWithManager } from "./StateSchema"
 import { userReducer } from "entities/User"
+import { createReducerManager } from "./ReducerManager"
 
 
 export const createReduxStore = (initialState?: IStateSchema) => {
@@ -8,11 +9,17 @@ export const createReduxStore = (initialState?: IStateSchema) => {
         user: userReducer
     }
 
-    return configureStore<IStateSchema>({
-        reducer: rootReducers,
-        devTools: true,
+    const reducerManager = createReducerManager(rootReducers)
+
+    const store: ReduxStoreWithManager = configureStore<IStateSchema>({
+        reducer: reducerManager.reduce as Reducer<IStateSchema>,
+        devTools: import.meta.env.DEV,
         preloadedState: initialState
     })
+
+    store.reducerManager = reducerManager
+
+    return store 
 }
 
 export type RootState = ReturnType<typeof createReduxStore>['getState']
