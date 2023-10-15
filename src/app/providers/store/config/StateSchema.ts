@@ -1,5 +1,5 @@
-import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
-import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
+import { AnyAction, CombinedState, Reducer, ReducersMapObject, ThunkMiddleware } from "@reduxjs/toolkit";
+import { EnhancedStore, ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 import { IConvSchema } from "entities/Conversations/model/types/conversations.state";
 import { IUserSchema } from "entities/User";
 
@@ -12,7 +12,7 @@ export interface IStateSchema {
 
 export type StateSchemaKey = keyof IStateSchema
 
-export interface ReduxStoreWithManager extends ToolkitStore<IStateSchema> {
+export interface ReduxStoreWithManager extends EnhancedStore<IStateSchema> {
     reducerManager?: ReducerManager
 }
 

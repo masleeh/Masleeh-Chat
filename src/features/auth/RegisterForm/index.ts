@@ -1,4 +1,4 @@
-import RegisterForm from "./RegisterForm";
+import RegisterForm from "./ui/RegisterForm";
 
 export {
     RegisterForm

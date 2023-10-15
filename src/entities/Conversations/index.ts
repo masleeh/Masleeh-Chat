@@ -1,8 +1,12 @@
 import { convActions, convReducer } from "./model/slice/conversations.slice";
-import getConvsThunk from "./utils/getConvsThunk/getConvsThunk";
+import getConvsThunk from "./api/getConvsThunk/getConvsThunk";
+import { getConvState } from "./model/selectors/getConvState/getConvState";
+import { getConvData } from "./model/selectors/getConvData/getConvData";
 
 export {
     convActions, 
     convReducer,
-    getConvsThunk
+    getConvsThunk,
+    getConvState,
+    getConvData
 }

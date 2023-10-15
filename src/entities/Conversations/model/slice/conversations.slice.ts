@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ConvItemsType, IConvSchema } from "../types/conversations.state";
-import getConvsThunk from "entities/Conversations/utils/getConvsThunk/getConvsThunk";
+import getConvsThunk from "entities/Conversations/api/getConvsThunk/getConvsThunk";
 
 export const initialState: IConvSchema = {
     convData: [],
