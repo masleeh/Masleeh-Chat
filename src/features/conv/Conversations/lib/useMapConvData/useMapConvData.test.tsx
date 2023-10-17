@@ -16,6 +16,7 @@ const fullData: TConvItem = {
     title: 'Ohoo',
     type: 'private',
     last_message: 'hahaha',
+    updatedAt: '2023-10-16T15:41:23.000Z',
     users: [
         {
             username: 'masleeh',
@@ -35,7 +36,8 @@ const fullDataResult = {
     last_message: 'hahaha',
     conv_id: '1234567890',
     title: 'katya',
-    isSelected: true
+    isSelected: true,
+    updateTime: '16.10.2023'
 }
 
 describe('useMapConvData', () => {

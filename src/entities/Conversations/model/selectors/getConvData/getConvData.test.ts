@@ -10,6 +10,7 @@ const filledState: DeepPartial<IStateSchema> = {
                 conv_id: '123456123123',
                 title: undefined,
                 last_message: 'ahahahaha',
+                updatedAt: '2023-10-16T15:41:23.000Z',
                 type: 'private',
                 users: [
                     {
@@ -29,6 +30,7 @@ const filledState: DeepPartial<IStateSchema> = {
                 title: undefined,
                 type: 'private',
                 last_message: undefined,
+                updatedAt: '2023-10-16T15:41:23.000Z',
                 users: [
                     {
                         username: 'masleeh',

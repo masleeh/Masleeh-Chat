@@ -11,6 +11,7 @@ const filledState: DeepPartial<IStateSchema> = {
                 title: undefined,
                 last_message: 'ahahahaha',
                 type: 'private',
+                updatedAt: '2023-10-16T15:41:23.000Z',
                 users: [
                     {
                         username: 'masleeh',
@@ -29,6 +30,7 @@ const filledState: DeepPartial<IStateSchema> = {
                 title: undefined,
                 type: 'private',
                 last_message: undefined,
+                updatedAt: '2023-10-16T15:41:23.000Z',
                 users: [
                     {
                         username: 'masleeh',

@@ -20,7 +20,8 @@ const ConvItem = memo(({
         title,
         last_message,
         pic,
-        isSelected
+        isSelected,
+        updateTime
     } = useMapConvData(partData)
 
     return (
@@ -38,16 +39,25 @@ const ConvItem = memo(({
             onClick={isSelected ? undefined : () => handleConvClick(conv_id)}
         >
             <ListItemAvatar>
-                <AvatarEl src={pic} name={title ?? ''} sx={{
-                    
-                }}/>
+                <AvatarEl src={pic} name={title ?? ''} />
             </ListItemAvatar>
             <ListItemText
                 primary={
-                    <Typography 
-                        variant='subtitle1'
-                        color={isSelected ? 'white' : 'black'}
-                    >{title}</Typography>
+                    <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                    >
+                        <Typography 
+                            variant='subtitle1'
+                            color={isSelected ? 'white' : 'black'}
+                        >{title}</Typography>
+
+                        <Typography 
+                            variant='caption'
+                            color={isSelected ? 'primary.contrastText' : 'text.secondary'}
+                        >{updateTime}</Typography>
+                    </Stack>
                 }
                 secondaryTypographyProps={{
                     component: Box,

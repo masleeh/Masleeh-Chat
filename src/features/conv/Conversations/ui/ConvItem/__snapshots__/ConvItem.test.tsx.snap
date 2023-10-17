@@ -22,11 +22,24 @@ exports[`ConvItem component > Check ConvItem 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <h6
-            class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+          <span
+            class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
           >
-            masleeh
-          </h6>
+            <div
+              class="MuiStack-root css-3y1137-MuiStack-root"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+              >
+                masleeh
+              </h6>
+              <span
+                class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+              >
+                16.10.2023
+              </span>
+            </div>
+          </span>
           <div
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary MuiBox-root css-pinrqx-MuiTypography-root"
           >
@@ -76,11 +89,24 @@ exports[`ConvItem component > Check ConvItem 1`] = `
       <div
         class="MuiListItemText-root MuiListItemText-multiline css-konndc-MuiListItemText-root"
       >
-        <h6
-          class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
         >
-          masleeh
-        </h6>
+          <div
+            class="MuiStack-root css-3y1137-MuiStack-root"
+          >
+            <h6
+              class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+            >
+              masleeh
+            </h6>
+            <span
+              class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+            >
+              16.10.2023
+            </span>
+          </div>
+        </span>
         <div
           class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary MuiBox-root css-pinrqx-MuiTypography-root"
         >

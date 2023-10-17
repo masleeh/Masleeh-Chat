@@ -11,6 +11,7 @@ export type TConvItem = {
     title?: string;
     type: string;
     last_message?: string;
+    updatedAt: string;
     users: TUserParticipant[];
 }
 
@@ -26,6 +27,7 @@ export const ConvItemsShema = z.array(
         title: z.string().nullish().transform(x => x ?? undefined).optional(),
         type: z.string(),
         last_message: z.string().nullish().transform(x => x ?? undefined).optional(),
+        updatedAt: z.string(),
         users: z.array(
             z.object({
                 username: z.string(),
