@@ -5,6 +5,7 @@ interface ImportMetaEnv {
     readonly VITE_FRONTEND_URL: string
     readonly VITE_IS_DEV: boolean
     readonly VITE_LOCALSTORAGE_TOKEN_KEY: string
+    readonly VITE_LOCALSTORAGE_CONVDATA_LENGTH: string
 }
   
 interface ImportMeta {

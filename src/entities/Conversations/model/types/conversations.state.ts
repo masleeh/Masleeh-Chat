@@ -1,11 +1,17 @@
 import { z } from "zod";
 
+export type TUserParticipant = {
+    username: string;
+    user_id: string;
+    profile_pic?: string;
+}
+
 export type TConvItem = {
     conv_id: string;
+    title?: string;
+    type: string;
     last_message?: string;
-    username: string;
-    profile_pic?: string;
-    unread_count: number;
+    users: TUserParticipant[];
 }
 
 export interface IConvSchema {
@@ -17,10 +23,16 @@ export interface IConvSchema {
 export const ConvItemsShema = z.array(
     z.object({
         conv_id: z.string().trim().min(1),
+        title: z.string().nullish().transform(x => x ?? undefined).optional(),
+        type: z.string(),
         last_message: z.string().nullish().transform(x => x ?? undefined).optional(),
-        username: z.string().trim().min(1),
-        profile_pic: z.string().nullish().transform(x => x ?? undefined).optional(),
-        unread_count: z.number().int()
+        users: z.array(
+            z.object({
+                username: z.string(),
+                user_id: z.string().trim().min(1),
+                profile_pic: z.string().nullish().transform(x => x ?? undefined).optional(),
+            })
+        )
     })
 )
 

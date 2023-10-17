@@ -8,24 +8,32 @@ import ConvItemSkeleton from '../ConvItemSkeleton/ConvItemSkeleton';
 
 const Conversations = memo(() => {
     useDynamicReducer('coversation', convReducer, false)
+
     const {
         isLoading,
-        error,
         convData
     } = useGetConversations()
 
     const convItems = useMemo(() => {
-        return convData.map((item) => (
-            <ConvItem 
-                key={item.conv_id}
-                username={item.username}
-                profilePic={item.profile_pic}
-                convId={item.conv_id}
-                lastMessage={item.last_message}
-                isSelected={true}
-            />
-        ))
+        return convData
+            // .filter((partData) => Boolean(partData.last_message))
+            .map((partData) => (
+                <ConvItem 
+                    key={partData.conv_id}
+                    partData={partData}
+                />
+            ))
     }, [convData])
+    
+    const loadingItems = useMemo(() => {
+        const prevConvDataLength = Number(localStorage.getItem(
+            import.meta.env.VITE_LOCALSTORAGE_CONVDATA_LENGTH
+        ))
+
+        return Array(prevConvDataLength > 5 ? prevConvDataLength : 5).fill(1).map((_, index) => (
+            <ConvItemSkeleton key={index}/>
+        ))
+    }, [])
 
     return (
         <List
@@ -37,9 +45,7 @@ const Conversations = memo(() => {
             }}
         >
             {isLoading ? (
-                Array(10).fill(1).map(() => (
-                    <ConvItemSkeleton />
-                ))
+                loadingItems
             ) : (
                 convItems   
             )}

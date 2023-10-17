@@ -9,11 +9,11 @@ const mockedAxios = vi.spyOn($api, 'get')
 const errorText: string = `[
   {
     "code": "invalid_type",
-    "expected": "number",
+    "expected": "string",
     "received": "undefined",
     "path": [
-      1,
-      "unread_count"
+      0,
+      "conv_id"
     ],
     "message": "Required"
   }
@@ -33,16 +33,40 @@ describe('getConvsThunk', () => {
             data: [
                 {
                     conv_id: '123456123123',
-                    username: 'masleeh',
-                    profile_pic: null,
-                    unread_count: 0,
+                    title: undefined,
+                    last_message: 'ahahahaha',
+                    type: 'private',
+                    users: [
+                        {
+                            username: 'masleeh',
+                            user_id: '123',
+                            profile_pic: undefined
+                        },
+                        {
+                            username: 'katya',
+                            user_id: '1234',
+                            profile_pic: undefined
+                        },
+                    ]
                 },
                 {
-                    conv_id: '123454123123',
-                    username: 'katya',
-                    profile_pic: null,
-                    unread_count: 2,
-                }
+                    conv_id: '12345612312321312',
+                    title: undefined,
+                    type: 'private',
+                    last_message: undefined,
+                    users: [
+                        {
+                            username: 'masleeh',
+                            user_id: '123',
+                            profile_pic: undefined
+                        },
+                        {
+                            username: 'vitya',
+                            user_id: '12345',
+                            profile_pic: undefined
+                        },
+                    ]
+                },
             ]
         })
 
@@ -58,16 +82,23 @@ describe('getConvsThunk', () => {
         mockedAxios.mockResolvedValue({
             data: [
                 {
-                    conv_id: '123456123123',
-                    username: 'masleeh',
+                    // conv_id: '12345612312321312',
+                    title: undefined,
                     profile_pic: null,
-                    unread_count: 0,
+                    type: 'private',
+                    users: [
+                        {
+                            username: 'masleeh',
+                            user_id: '123',
+                            profile_pic: undefined
+                        },
+                        {
+                            username: 'vitya',
+                            user_id: '12345',
+                            profile_pic: undefined
+                        },
+                    ]
                 },
-                {
-                    conv_id: '123454123123',
-                    username: 'katya',
-                    profile_pic: null
-                }
             ]
         })
 

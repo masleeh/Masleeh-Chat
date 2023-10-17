@@ -7,11 +7,41 @@ const filledState: DeepPartial<IStateSchema> = {
     coversation: {
         convData: [
             {
-                conv_id: '123456',
-                username: 'masleeh',
-                profile_pic: undefined,
-                unread_count: 0,
-            }
+                conv_id: '123456123123',
+                title: undefined,
+                last_message: 'ahahahaha',
+                type: 'private',
+                users: [
+                    {
+                        username: 'masleeh',
+                        user_id: '123',
+                        profile_pic: undefined
+                    },
+                    {
+                        username: 'katya',
+                        user_id: '1234',
+                        profile_pic: undefined
+                    },
+                ]
+            },
+            {
+                conv_id: '12345612312321312',
+                title: undefined,
+                type: 'private',
+                last_message: undefined,
+                users: [
+                    {
+                        username: 'masleeh',
+                        user_id: '123',
+                        profile_pic: undefined
+                    },
+                    {
+                        username: 'vitya',
+                        user_id: '12345',
+                        profile_pic: undefined
+                    },
+                ]
+            },
         ],
         error: '',
         isLoading: false

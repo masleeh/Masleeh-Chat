@@ -1,35 +1,44 @@
-import { Box, ListItem, ListItemAvatar, ListItemText, Stack, Typography } from '@mui/material';
+import { Box, ListItemAvatar, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
 import { AvatarEl } from 'shared/elements/common/Avatar';
 import DoneIcon from '@mui/icons-material/Done';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import useConvClick from '../../lib/useConvClick/useConvClick';
+import { TConvItem } from 'entities/Conversations';
+import useMapConvData from '../../lib/useMapConvData/useMapConvData';
+import { memo } from 'react';
 
 interface IConvItemProps {
-    username: string;
-    lastMessage?: string;
-    profilePic: string | undefined;
-    convId: string;
-    isSelected: boolean;
+    partData: TConvItem;
 }
 
-const ConvItem = ({
-    username,
-    lastMessage,
-    profilePic,
-    convId,
-    isSelected,
+const ConvItem = memo(({
+    partData,
 }:IConvItemProps) => {
     const {handleConvClick} = useConvClick()
+    const {
+        conv_id,
+        title,
+        last_message,
+        pic,
+        isSelected
+    } = useMapConvData(partData)
 
     return (
-        <ListItem
+        <ListItemButton
+            selected={isSelected}
             sx={{
-                bgcolor: (isSelected) ? 'primary.light' : 'primary.inverted'
+                '&.Mui-selected': {
+                    bgcolor: 'primary.main',
+                    '&:hover': {
+                        bgcolor: 'primary.light'
+                    }
+                },
+                borderRadius: 4
             }}
-            onClick={() => handleConvClick(convId)}
+            onClick={isSelected ? undefined : () => handleConvClick(conv_id)}
         >
             <ListItemAvatar>
-                <AvatarEl src={profilePic} name={username} sx={{
+                <AvatarEl src={pic} name={title ?? ''} sx={{
                     
                 }}/>
             </ListItemAvatar>
@@ -38,7 +47,7 @@ const ConvItem = ({
                     <Typography 
                         variant='subtitle1'
                         color={isSelected ? 'white' : 'black'}
-                    >{username}</Typography>
+                    >{title}</Typography>
                 }
                 secondaryTypographyProps={{
                     component: Box,
@@ -54,9 +63,9 @@ const ConvItem = ({
                             color={isSelected ? 'white' : 'gray'}
                             component="span"
                         >
-                            {lastMessage ?? ''}
+                            {last_message ?? ''}
                         </Typography>
-                        {(username) ? (
+                        {(title) ? (
                             <DoneAllIcon sx={{
                                 color: isSelected ? 'primary.contrastText' : 'primary.light'
                             }} />
@@ -66,8 +75,8 @@ const ConvItem = ({
                     </Stack>
                 }
             />
-        </ListItem>
+        </ListItemButton>
     )
-}
+})
 
 export default ConvItem
