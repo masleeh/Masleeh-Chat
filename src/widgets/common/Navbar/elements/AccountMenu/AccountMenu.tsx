@@ -7,6 +7,7 @@ import useCreateAnchor from "shared/hooks/MUI/useCreateAnchor";
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useTranslation } from "react-i18next";
+import useNavMenuButtons from "../../utils/useNavMenuButtons";
 
 interface IAccountMenuProps extends Omit<IconButtonProps, 
     'onClick' | 'aria-control' | 'aria-haspopup' | 'aria-expanded'> {}
@@ -24,6 +25,11 @@ const AccountMenu = ({
         handleClose
     } = useCreateAnchor()
 
+    const {
+        logOut
+    } = useNavMenuButtons()
+
+
     return (
         <React.Fragment>
             <IconButton
@@ -34,7 +40,7 @@ const AccountMenu = ({
                 aria-expanded={open ? 'true' : undefined}
                 {...otherProps}
             >
-                <AvatarEl name={userData?.username ?? 'U n'}/>
+                <AvatarEl name={userData?.username ?? 'U n'} src={userData?.profile_pic ?? undefined}/>
             </IconButton>
 
             <Menu
@@ -73,7 +79,7 @@ const AccountMenu = ({
                     </ListItemIcon>
                     {t("settings")}
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={logOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>

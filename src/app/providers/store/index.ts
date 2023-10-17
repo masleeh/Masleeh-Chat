@@ -1,10 +1,12 @@
-import StoreProvider from "./StoreProvider";
-import type { IStateSchema } from "./config/StateSchema";
+import StoreProvider from "./ui/StoreProvider";
+import type { IStateSchema, StateSchemaKey, ReduxStoreWithManager } from "./config/StateSchema";
 
 export {
     StoreProvider
 }
 
 export type {
-    IStateSchema
+    IStateSchema,
+    StateSchemaKey,
+    ReduxStoreWithManager
 }

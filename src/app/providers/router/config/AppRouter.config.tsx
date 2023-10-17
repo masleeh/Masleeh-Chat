@@ -1,20 +1,9 @@
 import { AuthPage } from "pages/AuthPage"
+import { ConvPage } from "pages/ConvPage"
 import { IndexPage } from "pages/IndexPage"
-import { RouteProps } from "react-router-dom"
-
-export type AppRoutesProps = RouteProps & {
-    authOnly?: boolean
-}
-
-enum AppRoutes {
-    index = 'index',
-    auth = 'auth'
-}
-
-export const AppRoutePaths: Record<AppRoutes, string> = {
-    [AppRoutes.index]: '/',
-    [AppRoutes.auth]: '/auth'
-}
+import { AppRoutePaths, AppRoutes } from "shared/config/router/AppRoutePaths"
+import { AppRoutesProps } from "shared/config/router/RoutesProps"
+import { ConvRoutesConfig } from "./ConvRoutes.config"
 
 export const AppRoutesConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.index]: {
@@ -26,5 +15,11 @@ export const AppRoutesConfig: Record<AppRoutes, AppRoutesProps> = {
         path: AppRoutePaths.auth,
         element: <AuthPage />,
         authOnly: false
-    }
+    },
+    [AppRoutes.conv]: {
+        path: AppRoutePaths.conv,
+        element: <ConvPage />,
+        authOnly: true,
+        nestedRoutes: ConvRoutesConfig
+    },
 }

@@ -15,7 +15,7 @@ const useGetUserData = () => {
             const checkData = await getUserDataSchema.safeParseAsync(data)
             if (checkData.success) {
                 dispatch(userActions.setUserData(data.userData))
-                localStorage.setItem('masleeh_chat_token', checkData.data.access_token)
+                localStorage.setItem(import.meta.env.VITE_LOCALSTORAGE_TOKEN_KEY, checkData.data.access_token)
             }
             return setInited(true)
         } catch (error) {

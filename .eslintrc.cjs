@@ -16,7 +16,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
     "indent": ["warn", 4],
-    "max-len": ["error", { "ignoreComments": true, "code": 120 }],
+    "max-len": ["error", { "ignoreComments": true, "code": 125 }],
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
   },
 }

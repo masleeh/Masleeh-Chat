@@ -1,13 +1,13 @@
 import useGetUserData from 'shared/lib/getUserData.ts/useGetUserData'
-import { AppRouter } from './providers/router'
 import './styles/style.scss'
 import { FallbackLoader } from 'widgets/app/FallbackLoader'
+import { AppRouterProvider } from './providers/router'
 
 const App = () => {
     const { inited } = useGetUserData()
 
     return (
-        inited ? <AppRouter /> : <FallbackLoader />
+        inited ? <AppRouterProvider /> : <FallbackLoader />
     )
 }
 

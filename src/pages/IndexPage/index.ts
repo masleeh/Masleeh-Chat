@@ -1,4 +1,4 @@
-import { IndexPageAsync as IndexPage } from "./IndexPage.async";
+import { IndexPageAsync as IndexPage } from "./ui/IndexPage.async";
 
 export {
     IndexPage
