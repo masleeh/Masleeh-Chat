@@ -26,7 +26,8 @@ const AccountMenu = ({
     } = useCreateAnchor()
 
     const {
-        logOut
+        logOut,
+        goToSettings
     } = useNavMenuButtons()
 
 
@@ -73,7 +74,7 @@ const AccountMenu = ({
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={goToSettings}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>

@@ -4,6 +4,7 @@ import { IndexPage } from "pages/IndexPage"
 import { AppRoutePaths, AppRoutes } from "shared/config/router/AppRoutePaths"
 import { AppRoutesProps } from "shared/config/router/RoutesProps"
 import { ConvRoutesConfig } from "./ConvRoutes.config"
+import { SettingsPage } from "pages/SettingsPage"
 
 export const AppRoutesConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.index]: {
@@ -22,4 +23,9 @@ export const AppRoutesConfig: Record<AppRoutes, AppRoutesProps> = {
         authOnly: true,
         nestedRoutes: ConvRoutesConfig
     },
+    [AppRoutes.settings]: {
+        path: AppRoutePaths.settings,
+        element: <SettingsPage />,
+        authOnly: true
+    }
 }

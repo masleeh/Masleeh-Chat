@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom"
+import { AppRoutePaths } from "shared/config/router/AppRoutePaths"
 
 const useNavMenuButtons = () => {
     const navigate = useNavigate()
 
     const goToSettings = () => {
-        navigate('/settings')
+        navigate(AppRoutePaths.settings)
     }
 
     const logOut = () => {
-        navigate('/auth')
+        
+        navigate(AppRoutePaths.auth)
     }
 
     return {
