@@ -15,7 +15,7 @@ exports[`Navbar component > Check component 1`] = `
             class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h5 css-1f8a19r-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-1cs5hlo-MuiTypography-root"
             >
               Masleeh Chat
             </div>
@@ -35,7 +35,7 @@ exports[`Navbar component > Check component 1`] = `
           class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5 css-1f8a19r-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 css-1cs5hlo-MuiTypography-root"
           >
             Masleeh Chat
           </div>

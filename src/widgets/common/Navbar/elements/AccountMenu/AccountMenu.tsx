@@ -45,6 +45,7 @@ const AccountMenu = ({
             </IconButton>
 
             <Menu
+                aria-label="navbar-menu"
                 anchorEl={anchorEl}
                 id="navbar-menu"
                 open={open}
@@ -80,7 +81,7 @@ const AccountMenu = ({
                     </ListItemIcon>
                     {t("settings")}
                 </MenuItem>
-                <MenuItem onClick={logOut}>
+                <MenuItem onClick={logOut} aria-label="logout button">
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
