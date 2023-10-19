@@ -41,6 +41,10 @@ const ActionAlert = memo(({
                     {buttonText}
                 </Button>
             )
+        default:
+            return (
+                <></>
+            )
         }
     }, [actionFunc, type, buttonText, disabled])
 
