@@ -1,10 +1,12 @@
 import { AnyAction, CombinedState, Reducer, ReducersMapObject, ThunkMiddleware } from "@reduxjs/toolkit";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 import { IConvSchema } from "entities/Conversations/model/types/conversations.state";
+import { IThemeSchema } from "entities/Theme";
 import { IUserSchema } from "entities/User";
 
 export interface IStateSchema {
     user: IUserSchema;
+    theme: IThemeSchema;
 
     // Async Reducers
     coversation?: IConvSchema;

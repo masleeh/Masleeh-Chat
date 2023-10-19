@@ -2,11 +2,13 @@ import { Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit"
 import { IStateSchema, ReduxStoreWithManager } from "./StateSchema"
 import { userReducer } from "entities/User"
 import { createReducerManager } from "./ReducerManager"
+import { themeReducer } from "entities/Theme"
 
 
 export const createReduxStore = (initialState?: IStateSchema) => {
     const rootReducers: ReducersMapObject<IStateSchema> = {
-        user: userReducer
+        user: userReducer,
+        theme: themeReducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
