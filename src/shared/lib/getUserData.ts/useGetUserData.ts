@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import $api from "../axiosApi/axiosApi"
 import { getUserDataSchema, getUserDataType } from "./getUserData.types"
-import { useAppDispatch } from "shared/hooks/useAppDispatch"
+import { useAppDispatch } from "shared/hooks/Redux/useAppDispatch"
 import { userActions } from "entities/User"
 
 

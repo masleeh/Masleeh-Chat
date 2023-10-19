@@ -2,7 +2,7 @@ import { getConvState, getConvsThunk } from "entities/Conversations"
 import { getUserId } from "entities/User"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { useAppDispatch } from "shared/hooks/useAppDispatch"
+import { useAppDispatch } from "shared/hooks/Redux/useAppDispatch"
 
 const useGetConversations = () => {
     const dispatch = useAppDispatch()

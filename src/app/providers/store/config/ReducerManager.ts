@@ -1,39 +1,52 @@
-import { AnyAction, Reducer, ReducersMapObject, combineReducers } from "@reduxjs/toolkit"
-import { IStateSchema, ReducerManager, StateSchemaKey } from "./StateSchema"
+import { ReducersMapObject, combineReducers } from "@reduxjs/toolkit"
+import { ReducerManager } from "./StateSchema"
 
 
 
-export function createReducerManager(initialReducers: ReducersMapObject<IStateSchema>): ReducerManager {
+export function createReducerManager<IStateSchema>(initialReducers: ReducersMapObject<IStateSchema>) {
     const reducers = { ...initialReducers }
     let combinedReducer = combineReducers(reducers)
-    let keysToRemove: StateSchemaKey[] = []
+    let keysToRemove: (keyof IStateSchema)[] = []
 
-    return {
+    const reducerManager: ReducerManager<IStateSchema> = {
         getReducerMap: () => reducers,
-        reduce: (state: IStateSchema, action: AnyAction) => {
+        reducer: (state, action) => {
             if (keysToRemove.length > 0) {
-                state = { ...state }
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                state = { ...state } as any
                 keysToRemove.forEach(key => {
-                    delete state[key]
+                    delete state![key]
                 })
                 keysToRemove = []
             }
             return combinedReducer(state, action)
         },
-        add: (key: StateSchemaKey, reducer: Reducer) => {
+        add: (key, reducer) => {
             if (!key || reducers[key]) {
                 return
             }
-            reducers[key] = reducer
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            reducers[key] = reducer as any
             combinedReducer = combineReducers(reducers)
         },
-        remove: (key: StateSchemaKey) => {
+        remove: (k) => {
+            const key = k as keyof IStateSchema
             if (!key || !reducers[key]) {
                 return
             }
             delete reducers[key]
             keysToRemove.push(key)
             combinedReducer = combineReducers(reducers)
+        },
+        enhancer: (next) => (...args) => {
+            const store = next(...args)
+            return {
+                ...store,
+                reducerManager
+            }
         }
+
     }
+
+    return reducerManager
 }

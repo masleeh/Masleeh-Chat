@@ -4,7 +4,7 @@ import $api from "shared/lib/axiosApi/axiosApi"
 import { isAxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import { getUserDataSchema, getUserDataType } from "shared/lib/getUserData.ts/getUserData.types";
-import { useAppDispatch } from "shared/hooks/useAppDispatch";
+import { useAppDispatch } from "shared/hooks/Redux/useAppDispatch";
 import { userActions } from "entities/User";
 
 const useSendLoginData = () => {

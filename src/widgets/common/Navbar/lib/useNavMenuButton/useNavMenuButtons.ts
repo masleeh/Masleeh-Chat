@@ -2,7 +2,7 @@ import { isAxiosError } from "axios"
 import { userActions } from "entities/User"
 import { useNavigate } from "react-router-dom"
 import { AppRoutePaths } from "shared/config/router/AppRoutePaths"
-import { useAppDispatch } from "shared/hooks/useAppDispatch"
+import { useAppDispatch } from "shared/hooks/Redux/useAppDispatch"
 import $api from "shared/lib/axiosApi/axiosApi"
 
 const useNavMenuButtons = () => {

@@ -29,7 +29,7 @@ exports[`ConvItem component > Check ConvItem 1`] = `
               class="MuiStack-root css-3y1137-MuiStack-root"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-1ddbhlq-MuiTypography-root"
               >
                 masleeh
               </h6>
@@ -96,7 +96,7 @@ exports[`ConvItem component > Check ConvItem 1`] = `
             class="MuiStack-root css-3y1137-MuiStack-root"
           >
             <h6
-              class="MuiTypography-root MuiTypography-subtitle1 css-1wp00cw-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subtitle1 css-1ddbhlq-MuiTypography-root"
             >
               masleeh
             </h6>

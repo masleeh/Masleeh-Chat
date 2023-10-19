@@ -7,7 +7,7 @@ import useCreateAnchor from "shared/hooks/MUI/useCreateAnchor";
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useTranslation } from "react-i18next";
-import useNavMenuButtons from "../../utils/useNavMenuButtons";
+import useNavMenuButtons from "../../lib/useNavMenuButton/useNavMenuButtons";
 
 interface IAccountMenuProps extends Omit<IconButtonProps, 
     'onClick' | 'aria-control' | 'aria-haspopup' | 'aria-expanded'> {}

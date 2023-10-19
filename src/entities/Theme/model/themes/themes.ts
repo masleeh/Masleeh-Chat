@@ -1,4 +1,5 @@
 import { ThemeOptions } from "@mui/material";
+
 export enum Themes {
     default = 'default',
 }

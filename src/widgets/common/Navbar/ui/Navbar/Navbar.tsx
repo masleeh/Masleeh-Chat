@@ -1,8 +1,9 @@
 import { AppBar, Container, Toolbar, Typography } from "@mui/material"
-import AccountMenu from "./elements/AccountMenu/AccountMenu"
+import AccountMenu from "../AccountMenu/AccountMenu"
 import { useSelector } from "react-redux"
 import { getUserId } from "entities/User/model/selectors/getUserId/getUserId"
-import useNavMenuButtons from "./utils/useNavMenuButtons"
+import useNavMenuButtons from "../../lib/useNavMenuButton/useNavMenuButtons"
+import ToggleThemeMode from "../ToggleThemeMode/ToggleThemeMode"
 
 const Navbar = () => {
     const userId = useSelector(getUserId)
@@ -26,7 +27,8 @@ const Navbar = () => {
                         Masleeh Chat
                     </Typography>
 
-                    { userId && <AccountMenu />}
+                    <ToggleThemeMode />
+                    { userId && <AccountMenu sx={{ml: 2}}/>}
                             
                 </Toolbar>
             </AppBar>

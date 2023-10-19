@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import Navbar from './Navbar'
 import Decorator from 'shared/config/storybook/decorator';
 import { Container } from '@mui/material';
+import { IStateSchema } from 'app/providers/store';
 
 const meta = {
     title: 'widgets/common/Navbar',
@@ -33,14 +34,15 @@ export const LoggedOut: Story = {
     ]
 };
 
-const state = {
+const state: IStateSchema = {
     user: {
         userData: {
             user_id: 'asdfghjklzxv',
             username: 'Matvey Simonenkov',
             profile_pic: ''
         }
-    }
+    },
+    theme: {}
 }
 
 export const LoggedIn: Story = {

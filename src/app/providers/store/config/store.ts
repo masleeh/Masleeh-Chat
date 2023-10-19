@@ -1,28 +1,26 @@
-import { Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit"
-import { IStateSchema, ReduxStoreWithManager } from "./StateSchema"
+import { ReducersMapObject, configureStore } from "@reduxjs/toolkit"
+import { IStateSchema } from "./StateSchema"
 import { userReducer } from "entities/User"
 import { createReducerManager } from "./ReducerManager"
 import { themeReducer } from "entities/Theme"
 
-
-export const createReduxStore = (initialState?: IStateSchema) => {
-    const rootReducers: ReducersMapObject<IStateSchema> = {
-        user: userReducer,
-        theme: themeReducer
-    }
-
-    const reducerManager = createReducerManager(rootReducers)
-
-    const store: ReduxStoreWithManager = configureStore<IStateSchema>({
-        reducer: reducerManager.reduce as Reducer<IStateSchema>,
-        devTools: import.meta.env.DEV,
-        preloadedState: initialState
-    })
-
-    store.reducerManager = reducerManager
-
-    return store 
+const rootReducers: ReducersMapObject<IStateSchema> = {
+    user: userReducer,
+    theme: themeReducer
 }
 
-export type RootState = ReturnType<typeof createReduxStore>['getState']
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+const reducerManager = createReducerManager<IStateSchema>(rootReducers)
+
+export const createReduxStore = (initialState?: IStateSchema) => {
+    const store = configureStore({
+        reducer: reducerManager.reducer,
+        devTools: import.meta.env.DEV,
+        preloadedState: initialState,
+        enhancers: [reducerManager.enhancer]
+    })
+
+    return store
+}
+
+export type AppStore = ReturnType<typeof createReduxStore>
+export type AppDispatch = AppStore['dispatch']
