@@ -9,7 +9,7 @@ const SettingsPage = () => {
         <React.Fragment>
             <Navbar />
 
-            <Container maxWidth="sm" sx={{mt: 2}}>
+            <Container maxWidth="lg" sx={{mt: 2}}>
                 <SettingsWidget />
             </Container>
         </React.Fragment>

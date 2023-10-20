@@ -1,6 +1,6 @@
 import { Button, CircularProgress, styled } from "@mui/material";
 import { useTranslation } from "react-i18next"
-import useGetFile from "../lib/useGetFile/useGetFile";
+import useGetFile from "../api/useGetFile/useGetFile";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const VisuallyHiddenInput = styled('input')({

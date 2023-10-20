@@ -7,7 +7,7 @@ export {
     userActions,
     userReducer,
     getUserId,
-    getUserPic
+    getUserPic,
 } 
 
 export type { 
