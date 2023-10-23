@@ -1,4 +1,4 @@
-import { AppThemes, ThemeMode, Themes, themeActions } from "entities/Theme"
+import { AppThemes, Themes, themeActions } from "entities/Theme"
 import { useCallback } from "react"
 import { useAppDispatch } from "shared/hooks/Redux/useAppDispatch"
 import { ThemeProviderSchema } from "../model/types/ThemeProvider.types"
