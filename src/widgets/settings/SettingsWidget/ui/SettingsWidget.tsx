@@ -1,5 +1,6 @@
 import { Paper, Typography } from "@mui/material"
 import { getUserData } from "entities/User/model/selectors/getUserData/getUserData"
+import { ChangeTheme } from "features/settings/ChangeTheme"
 import { UpdateUserInfo } from "features/settings/UpdateUserInfo"
 import { UploadProfilePic } from "features/settings/UploadProfilePic"
 import { useTranslation } from "react-i18next"
@@ -38,8 +39,11 @@ const SettingsWidget = () => {
                 {userData?.username ?? ""}
             </Typography>
             <UploadProfilePic />
-
             <UpdateUserInfo />
+            <Typography variant="h5" sx={{mt: 1}}>
+                {t("s_change_theme")}
+            </Typography>
+            <ChangeTheme />
         </Paper>
     )
 }
