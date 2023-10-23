@@ -20,7 +20,10 @@ const ChangeTheme = () => {
                 .palette?.primary as SimplePaletteColorOptions)?.main ?? "#1976d2"
 
             return (
-                <Tooltip title={themeKey} placement="top">
+                <Tooltip 
+                    key={themeKey}
+                    title={`${themeKey.slice(0, 1).toUpperCase()}${themeKey.slice(1)}`} placement="top"
+                >
                     <Avatar 
                         aria-label={`theme btn ${themeKey}`}
                         variant="square"

@@ -1,11 +1,11 @@
 import { ThemeOptions } from "@mui/material";
 
 export enum Themes {
-    default = 'Default',
-    violet = 'Violet',
-    feldgrau = 'Feldgrau',
-    mindaro = 'Mindaro',
-    lightred = 'Lightred'
+    default = 'default',
+    violet = 'violet',
+    feldgrau = 'feldgrau',
+    mindaro = 'mindaro',
+    lightred = 'lightred'
 }
 
 export enum ThemeMode {

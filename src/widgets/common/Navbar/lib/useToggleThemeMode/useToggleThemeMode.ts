@@ -13,6 +13,8 @@ const useToggleThemeMode = () => {
     const themeTitle = useAppSelector(getThemeTitle)
 
     const toggleAppThemeMode = () => {
+        localStorage.setItem(import.meta.env.VITE_LOCALSTORAGE_MODE, 
+            mode === ThemeMode.light ? ThemeMode.dark : ThemeMode.light)
         dispatch(themeActions.setTheme({
             title: themeTitle,
             theme: AppThemes[themeTitle][mode === ThemeMode.light ? ThemeMode.dark : ThemeMode.light]

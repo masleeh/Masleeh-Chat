@@ -22,7 +22,7 @@ describe('ChangeTheme component', () => {
     it('Check changing theme', async () => {
         const store = createReduxStore(state as IStateSchema)
         testWrapper(<ChangeTheme />, {store: store})
-        const themeBtn = screen.getByLabelText("theme btn Violet")
+        const themeBtn = screen.getByLabelText("theme btn violet")
         userEvent.click(themeBtn)
 
         setTimeout(() => {
