@@ -50,7 +50,7 @@ const ConvItem = memo(({
                     >
                         <Typography 
                             variant='subtitle1'
-                            color={isSelected ? 'white' : 'black'}
+                            color={isSelected ? 'primary.contrastText' : '.palette.text.primary'}
                         >{title}</Typography>
 
                         <Typography 

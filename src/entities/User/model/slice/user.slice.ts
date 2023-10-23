@@ -9,6 +9,12 @@ export const userSlice = createSlice({
     reducers: {
         setUserData: (state, action: PayloadAction<IUser>) => {
             state.userData = action.payload
+        },
+        clearUserData: (state) => {
+            state.userData = undefined
+        },
+        setProfilePic: (state, action: PayloadAction<string>) => {
+            state.userData && (state.userData.profile_pic = action.payload)
         }
     },
 })

@@ -9,7 +9,7 @@ vi.mock('react-router-dom', () => ({
     ...vi.importActual('react-router-dom'),
     useNavigate: () => vi.fn()
 }))
-vi.mock('shared/hooks/useAppDispatch', () => ({
+vi.mock('shared/hooks/Redux/useAppDispatch', () => ({
     useAppDispatch: () => vi.fn()
 }))
 

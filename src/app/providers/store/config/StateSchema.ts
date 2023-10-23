@@ -1,25 +1,24 @@
-import { AnyAction, CombinedState, Reducer, ReducersMapObject, ThunkMiddleware } from "@reduxjs/toolkit";
-import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
+import { CombinedState, Reducer, ReducersMapObject, StoreEnhancer } from "@reduxjs/toolkit";
 import { IConvSchema } from "entities/Conversations/model/types/conversations.state";
+import { IThemeSchema } from "entities/Theme";
 import { IUserSchema } from "entities/User";
 
 export interface IStateSchema {
     user: IUserSchema;
+    theme: IThemeSchema;
 
     // Async Reducers
     coversation?: IConvSchema;
 }
 
-export type StateSchemaKey = keyof IStateSchema
+type OnlyOptionalKeys<State> = keyof { [K in keyof State as [undefined] extends [State[K]] ? K : never]: true }
 
-export interface ReduxStoreWithManager extends ToolkitStore
-    <IStateSchema, AnyAction, [ThunkMiddleware<IStateSchema, AnyAction>]> {
-    reducerManager?: ReducerManager
-}
+export type StateSchemaKey = OnlyOptionalKeys<IStateSchema>
 
-export interface ReducerManager {
+export interface ReducerManager<IStateSchema> {
     getReducerMap: () => ReducersMapObject<IStateSchema>;
-    reduce: (state: IStateSchema, action: AnyAction) => CombinedState<IStateSchema>;
-    add: (key: StateSchemaKey, reducer: Reducer) => void;
-    remove: (key: StateSchemaKey) => void;
+    reducer: Reducer<CombinedState<IStateSchema>>;
+    add: <K extends keyof IStateSchema>(key: K, reducer: Reducer<Exclude<IStateSchema[K], undefined>>) => void;
+    remove: (key: OnlyOptionalKeys<IStateSchema>) => void;
+    enhancer: StoreEnhancer<{ reducerManager: ReducerManager<IStateSchema>}>;
 }
