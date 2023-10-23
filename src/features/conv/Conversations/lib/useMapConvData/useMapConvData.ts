@@ -7,6 +7,7 @@ const useMapConvData = (partData: TConvItem) => {
     const convParams = useParams()
     const userId = useSelector(getUserId)
     const [userData] = partData.users.filter(item => item.user_id !== userId)
+    const [message] = partData.message
 
     const date = new Date(partData.updatedAt)
     const todayDate = new Date()
@@ -29,11 +30,11 @@ const useMapConvData = (partData: TConvItem) => {
 
     return {
         pic: partData.type === 'private' ? userData?.profile_pic ?? '' : '',
-        last_message: partData.last_message,
+        last_message: message,
         conv_id: partData.conv_id,
         title: partData.type === 'private' ? userData?.username ?? '' : partData.title ?? '',
         isSelected: convParams.conv_id === partData.conv_id,
-        updateTime: formattedTime ?? ''
+        updateTime: formattedTime ?? '',
     }
 }
 

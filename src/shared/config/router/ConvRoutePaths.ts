@@ -3,5 +3,5 @@ export enum ConvRoutes {
 }
 
 export const ConvRoutePaths: Record<ConvRoutes, string> = {
-    [ConvRoutes.conv_id]: '/conv/:conv_id'
+    [ConvRoutes.conv_id]: '/conv/:conv_id',
 }
