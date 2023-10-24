@@ -13,7 +13,7 @@ interface IConvItemProps {
 const ConvItem = memo(({
     partData,
 }:IConvItemProps) => {
-    const {handleConvClick} = useConvClick()
+    const {handleConvClick} = useConvClick(partData)
     const {
         conv_id,
         title,

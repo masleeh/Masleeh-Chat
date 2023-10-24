@@ -18,6 +18,16 @@ const partData = {
             user_id: '1234',
             profile_pic: undefined
         },
+    ],
+    message: [
+        {
+            mes_id: '1234567890',
+            user_id: 'asdfg',
+            conv_id: '1234567890',
+            body: 'Privetiki',
+            status: 'unread',
+            type: 'text'
+        }
     ]
 }
 

@@ -34,7 +34,7 @@ describe('getConvsThunk', () => {
                 {
                     conv_id: '123456123123',
                     title: undefined,
-                    last_message: 'ahahahaha',
+                    last_message: 'asdfasdascxzzz',
                     type: 'private',
                     updatedAt: '2023-10-16T15:41:23.000Z',
                     users: [
@@ -48,13 +48,23 @@ describe('getConvsThunk', () => {
                             user_id: '1234',
                             profile_pic: undefined
                         },
+                    ],
+                    message: [
+                        {
+                            mes_id: 'asdfasdascxzzz',
+                            user_id: '1234',
+                            conv_id: '123456123123',
+                            body: 'Privetiki',
+                            status: 'unread',
+                            type: 'text'
+                        }
                     ]
                 },
                 {
                     conv_id: '12345612312321312',
                     title: undefined,
                     type: 'private',
-                    last_message: undefined,
+                    last_message: 'asdfasdascxzzz',
                     updatedAt: '2023-10-16T15:41:23.000Z',
                     users: [
                         {
@@ -67,6 +77,16 @@ describe('getConvsThunk', () => {
                             user_id: '12345',
                             profile_pic: undefined
                         },
+                    ],
+                    message: [
+                        {
+                            mes_id: 'asdfasdascxzzz',
+                            user_id: '12345',
+                            conv_id: '12345612312321312',
+                            body: 'Privetiki',
+                            status: 'unread',
+                            type: 'text'
+                        }
                     ]
                 },
             ]
@@ -100,6 +120,16 @@ describe('getConvsThunk', () => {
                             user_id: '12345',
                             profile_pic: undefined
                         },
+                    ],
+                    message: [
+                        {
+                            mes_id: 'asdfasdascxzzz',
+                            user_id: '12345',
+                            conv_id: '12345612312321312',
+                            body: 'Privetiki',
+                            status: 'unread',
+                            type: 'text'
+                        }
                     ]
                 },
             ]
