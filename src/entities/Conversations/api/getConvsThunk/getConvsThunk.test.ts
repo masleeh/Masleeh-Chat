@@ -137,7 +137,6 @@ describe('getConvsThunk', () => {
 
         const action = getConvsThunk('12345')
         const result = await action(dispatch, getState, undefined)
-        console.log(result.payload)
         expect(mockedAxios).toHaveBeenCalled()
         expect(result.meta.requestStatus).toBe('rejected')
         expect((result.payload as string)).toContain(errorText)

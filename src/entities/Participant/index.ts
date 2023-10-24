@@ -1,3 +1,4 @@
+import getDialogDataThunk from "./api/getDialogDataThunk/getDialogDataThunk";
 import { getDialogData } from "./model/selectors/getDialogData/getDialogData";
 import { getDialogState } from "./model/selectors/getDialogState/getDialogState";
 import { participantActions, participantReducer } from "./model/slice/participant.slice";
@@ -12,5 +13,6 @@ export {
     participantActions,
     participantReducer,
     getDialogData,
-    getDialogState
+    getDialogState,
+    getDialogDataThunk
 }

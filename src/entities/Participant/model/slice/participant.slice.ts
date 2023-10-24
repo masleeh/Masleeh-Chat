@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { IPartData, IParticipantSchema } from '../types/participant.state'
+import { getDialogDataThunk } from 'entities/Participant'
 
 export const initialState: IParticipantSchema = {
     isLoading: false,
@@ -23,6 +24,22 @@ export const participantSlice = createSlice({
             state._inited = true
         }
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getDialogDataThunk.pending, (state) => {
+                state.error = ''
+                state.isLoading = true                
+            })
+            .addCase(getDialogDataThunk.rejected, (state, action: PayloadAction<string | undefined>) => {
+                state.error = action.payload ?? ''
+                state.isLoading = false
+            })
+            .addCase(getDialogDataThunk.fulfilled, (state, action: PayloadAction<IPartData>) => {
+                state.isLoading = false
+                state.partData = action.payload
+                state._inited = true
+            })
+    }
 })
 
 export const { actions: participantActions } = participantSlice
