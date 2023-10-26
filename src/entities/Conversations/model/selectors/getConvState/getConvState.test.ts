@@ -23,6 +23,16 @@ const filledState: DeepPartial<IStateSchema> = {
                         user_id: '1234',
                         profile_pic: undefined
                     },
+                ],
+                message: [
+                    {
+                        mes_id: '1234234234',
+                        user_id: '123',
+                        conv_id: '123456123123',
+                        body: 'Privetiki',
+                        status: 'unread',
+                        type: 'text'
+                    }
                 ]
             },
             {
@@ -42,6 +52,16 @@ const filledState: DeepPartial<IStateSchema> = {
                         user_id: '12345',
                         profile_pic: undefined
                     },
+                ],
+                message: [
+                    {
+                        mes_id: 'asdfasdascxzzz',
+                        user_id: '12345',
+                        conv_id: '12345612312321312',
+                        body: 'Privetiki',
+                        status: 'unread',
+                        type: 'text'
+                    }
                 ]
             },
         ],

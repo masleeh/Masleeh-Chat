@@ -14,8 +14,6 @@ const useSetTheme = () => {
             themeMode, themeTitle
         })
 
-        console.log(checkData)
-
         if (checkData.success) {
             dispatch(themeActions.setTheme({
                 title: checkData.data.themeTitle,

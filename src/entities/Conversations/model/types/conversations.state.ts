@@ -6,6 +6,15 @@ export type TUserParticipant = {
     profile_pic?: string;
 }
 
+export type TConvMessage = {
+    mes_id: string;
+    user_id: string;
+    conv_id: string;
+    status: string;
+    body: string;
+    type: string;
+}
+
 export type TConvItem = {
     conv_id: string;
     title?: string;
@@ -13,6 +22,7 @@ export type TConvItem = {
     last_message?: string;
     updatedAt: string;
     users: TUserParticipant[];
+    message: TConvMessage[]
 }
 
 export interface IConvSchema {
@@ -34,7 +44,17 @@ export const ConvItemsShema = z.array(
                 user_id: z.string().trim().min(1),
                 profile_pic: z.string().nullish().transform(x => x ?? undefined).optional(),
             })
-        )
+        ),
+        message: z.array(
+            z.object({
+                mes_id: z.string().trim().min(1),
+                user_id: z.string().trim().min(1),
+                conv_id: z.string().trim().min(1),
+                status: z.string().trim().min(1),
+                type: z.string().trim().min(1),
+                body: z.string().trim().min(1)
+            })
+        ).length(1)
     })
 )
 

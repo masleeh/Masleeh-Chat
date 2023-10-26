@@ -1,11 +1,10 @@
 import { Box, ListItemAvatar, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
 import { AvatarEl } from 'shared/elements/common/Avatar';
-import DoneIcon from '@mui/icons-material/Done';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
 import useConvClick from '../../lib/useConvClick/useConvClick';
 import { TConvItem } from 'entities/Conversations';
 import useMapConvData from '../../lib/useMapConvData/useMapConvData';
 import { memo } from 'react';
+import LastMessageStatus from '../LastMessageStatus/LastMessageStatus';
 
 interface IConvItemProps {
     partData: TConvItem;
@@ -14,7 +13,7 @@ interface IConvItemProps {
 const ConvItem = memo(({
     partData,
 }:IConvItemProps) => {
-    const {handleConvClick} = useConvClick()
+    const {handleConvClick} = useConvClick(partData)
     const {
         conv_id,
         title,
@@ -72,17 +71,20 @@ const ConvItem = memo(({
                             variant="body2"
                             color={isSelected ? 'white' : 'gray'}
                             component="span"
+                            sx={{
+                                overflowInline: 'hidden'
+                            }}
                         >
-                            {last_message ?? ''}
+                            {last_message.body ?? ''}
                         </Typography>
-                        {(title) ? (
-                            <DoneAllIcon sx={{
+                        <LastMessageStatus 
+                            message={last_message}
+                            sx={{
                                 color: isSelected ? 'primary.contrastText' : 'primary.light'
-                            }} />
-                        ) : (
-                            <DoneIcon />
-                        )}
+                            }}
+                        />
                     </Stack>
+                                
                 }
             />
         </ListItemButton>

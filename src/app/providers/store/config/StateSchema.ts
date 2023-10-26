@@ -1,5 +1,7 @@
 import { CombinedState, Reducer, ReducersMapObject, StoreEnhancer } from "@reduxjs/toolkit";
 import { IConvSchema } from "entities/Conversations/model/types/conversations.state";
+import { IMessagesSchema } from "entities/Messages";
+import { IParticipantSchema } from "entities/Participant";
 import { IThemeSchema } from "entities/Theme";
 import { IUserSchema } from "entities/User";
 
@@ -9,6 +11,8 @@ export interface IStateSchema {
 
     // Async Reducers
     coversation?: IConvSchema;
+    participants?: IParticipantSchema;
+    messages?: IMessagesSchema;
 }
 
 type OnlyOptionalKeys<State> = keyof { [K in keyof State as [undefined] extends [State[K]] ? K : never]: true }

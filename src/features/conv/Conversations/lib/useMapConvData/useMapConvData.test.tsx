@@ -15,7 +15,7 @@ const fullData: TConvItem = {
     conv_id: '1234567890',
     title: 'Ohoo',
     type: 'private',
-    last_message: 'hahaha',
+    last_message: '1234567890',
     updatedAt: '2023-10-16T15:41:23.000Z',
     users: [
         {
@@ -28,12 +28,29 @@ const fullData: TConvItem = {
             user_id: 'asdfggg',
             profile_pic: undefined
         },
+    ],
+    message: [
+        {
+            mes_id: '1234567890',
+            user_id: 'asdfg',
+            conv_id: '1234567890',
+            body: 'Privetiki',
+            status: 'unread',
+            type: 'text'
+        }
     ]
 }
 
 const fullDataResult = {
     pic: '',
-    last_message: 'hahaha',
+    last_message: {
+        mes_id: '1234567890',
+        user_id: 'asdfg',
+        conv_id: '1234567890',
+        body: 'Privetiki',
+        status: 'unread',
+        type: 'text'
+    },
     conv_id: '1234567890',
     title: 'katya',
     isSelected: true,
