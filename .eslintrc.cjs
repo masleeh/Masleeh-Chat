@@ -18,5 +18,6 @@ module.exports = {
     "indent": ["warn", 4],
     "max-len": ["error", { "ignoreComments": true, "code": 125 }],
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "max-lines": ["error", { "max": 150, "skipComments": true, "skipBlankLines": true }]
   },
 }

@@ -1,5 +1,5 @@
 import { Grid, Paper, Skeleton, Stack, Typography } from "@mui/material"
-import React, { memo, useMemo } from "react"
+import { memo, useMemo } from "react"
 import { AvatarEl } from "shared/elements/common/Avatar"
 import DialogOptions from "../DialogOptions/DialogOptions"
 import { useAppSelector } from "shared/hooks/Redux/useAppSelector"
@@ -18,17 +18,17 @@ const DialogTitleBox = memo(() => {
     } = useMapDialogData(partData)
 
     const dialogInfo = useMemo(() => (
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
             <Grid item sx={{
                 display: 'flex'
             }}>
                 <AvatarEl name={title} />
             </Grid>
-            <Grid item>
+            <Grid item sx={{mt: -0.5}}>
                 <Typography variant="subtitle1" display="block" gutterBottom>
                     {title}
                 </Typography>
-                <Typography sx={{mt: -1.5, mb: -1}} variant="caption" display="block" gutterBottom>
+                <Typography sx={{mt: -1, mb: -1}} variant="caption" display="block" gutterBottom>
                     {subtitle}
                 </Typography>
             </Grid>
@@ -36,7 +36,7 @@ const DialogTitleBox = memo(() => {
     ), [title, subtitle])
 
     const dialogSkeleton = useMemo(() => (
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
             <Grid item sx={{
                 display: 'flex'
             }}>
@@ -54,7 +54,7 @@ const DialogTitleBox = memo(() => {
             elevation={4} 
             sx={{
                 p: "8px 16px", 
-                borderRadius: 6,
+                borderRadius: 0,
                 height: 56,
                 display: 'flex',
                 flexDirection: 'row',

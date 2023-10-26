@@ -2,6 +2,15 @@ import { DeepPartial } from "@reduxjs/toolkit"
 import { IStateSchema } from "app/providers/store"
 import { getDialogState } from "./getDialogState"
 
+vi.mock("@reduxjs/toolkit", async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const actual: any = await vi.importActual("@reduxjs/toolkit")
+    return ({
+        ...actual,
+        createSelector: () => vi.fn()
+    })
+})
+
 const emptyState: DeepPartial<IStateSchema> = {}
 const state: DeepPartial<IStateSchema> = {
     participants: {

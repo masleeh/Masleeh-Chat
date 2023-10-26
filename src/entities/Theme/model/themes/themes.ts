@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { ThemeOptions } from "@mui/material";
 
 export enum Themes {
